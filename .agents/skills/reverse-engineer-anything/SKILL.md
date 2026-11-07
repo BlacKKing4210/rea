@@ -53,6 +53,16 @@ only setup-owned registrations use the guide's
 [registration repair plan](references/connection-and-recovery.md#repair-registration-when-needed).
 A plugin-only doctor result of `missing` does not call for `rea setup`.
 
+When the user selects a fork or source checkout, preserve that installation as
+the owner. Use its registered absolute runtime and entry script for CLI work,
+diagnostics and setup refresh. Build the same checkout with its documented build
+commands. Record the remote, revision and dirty state with the investigation.
+Do not silently substitute a published package
+or `npx ...@latest` when that would bypass the selected source or local fixes.
+An installed skill, a healthy standalone MCP adapter, and tools discovered by
+the current client are separate observations; continue through the same owner's
+CLI when the running client has not discovered its new registration.
+
 REA setup never installs or upgrades Node.js, npm, Homebrew, Java, Ghidra, IDA,
 JADX, Kuna, Binwalk, or Unblob. Use existing prerequisites; do not install unrelated
 software to repair MCP registration. For an unsupported client, use manual stdio
@@ -93,7 +103,10 @@ explicit path or endpoint and do not need it.
   for selected member fields/pages. A complete small inventory can cost less
   than extra calls and schemas. Runtime options are metadata, not files.
   Compact delivery still inventories and hashes members. See the
-  [Python packaged applications guide](https://github.com/morluto/rea/blob/main/docs/python-packaged-applications.md).
+  [packaged Python investigation](references/native-and-artifacts.md#pyinstaller-packaged-python)
+  for selection and independent-check boundaries, and the
+  [Python packaged applications guide](https://github.com/morluto/rea/blob/main/docs/python-packaged-applications.md)
+  for the reader contract.
 - Bun `--compile` executable: `open_binary`, then `inspect_artifact`; the Bun
   module graph is the application layer. Extract stored modules and analyze the
   JavaScript. See [Bun standalone executables](https://github.com/morluto/rea/blob/main/docs/bun-standalone.md).
@@ -105,6 +118,10 @@ explicit path or endpoint and do not need it.
   `inspect_android_package`, then focused Android tools when advertised.
   Archive member inventory still uses the archive route above.
 - Managed PE/CLI assembly: `inspect_managed_artifact`.
+- Godot PCK or JVM JAR: use the archive inventory/extraction route, then the
+  [Godot](references/native-and-artifacts.md#godot-exported-projects) or
+  [JVM](references/native-and-artifacts.md#jvm-application-archives) guide for
+  separately selected reading backends and verification boundaries.
 - Firmware image: `inspect_firmware_regions` when advertised. Use
   `extract_firmware` when extraction is requested, with a caller-selected new
   absolute output directory. These tools use caller-supplied Binwalk/Unblob on
@@ -546,3 +563,6 @@ history remain in memory on the same MCP connection. End the investigation with
 `reset_investigation`; supply `save_path` to checkpoint the complete bundle before
 clearing. Import the saved bundle to restore original references and Unknown
 history in a new process. Retention is bounded and is not automatic persistence.
+For one-shot CLI calls, save the returned evidence before the process exits;
+there is no surviving connection to clear with a new CLI process. Apply session
+close and investigation reset to the same live MCP connection that owns them.

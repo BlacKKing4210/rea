@@ -62,6 +62,49 @@ runtime presence. For compact CLI output, use
 `inspect-desktop-application PATH --detail summary --evidence_output BUNDLE`.
 See [desktop installations](https://github.com/morluto/rea/blob/main/docs/desktop-applications.md).
 
+## Godot exported projects
+
+Use the PCK inventory and selected extraction route first. Pack engine-version
+fields describe the container declaration; inspect the selected runtime's actual
+version before calling it a stable or matching engine. REA's PCK reader does not
+decompile GDScript or decode scene/resource behavior. A separately selected GDRE
+backend can produce reading copies; retain its identity, warnings, source mapping
+and original bytes, and do not present that backend output as a REA capability.
+
+For a token-stream roundtrip, explicitly select a fresh encoder output root and
+bind every original member to the recovered text, encoder input and actual new
+output. Recovery backups and automatic-conversion directories can contain the
+original bytecode. Matching those copies proves extraction, not a roundtrip.
+Verify basename collisions, command-reported output paths and output creation;
+then compare the actual encoded bytes independently with the original pack.
+
+A controlled function probe must identify exact source slices and dependency
+doubles. Record the executable and selected project/pack hashes, profile paths,
+observed engine version, result identities/types and process cleanup. An explicit
+main pack selects project content; it is not an OS filesystem/network sandbox.
+Exact-function replay with doubles is not a complete original-game scenario.
+
+## JVM application archives
+
+Inventory JAR members as an archive, preserve duplicate entry identities and
+select application classes separately from bundled libraries and resources.
+ClassFile structure, recovered Java, successful compilation and runtime behavior
+are separate checks. Use original InnerClasses/EnclosingMethod attributes when
+mapping nested or synthetic classes to enclosing reading files; source-file
+counts alone do not measure class or method coverage.
+
+When an optional Java decompiler reports unstructured flow, invalid local types
+or changed exception handling, preserve its baseline output. A second backend
+is a candidate reading, not automatic corroboration. Check original Code,
+constant-pool targets, local-variable lifetimes, assignment order and exception
+tables for each affected method. Keep preferred-reading overrides scoped to the
+reviewed methods; do not silently replace or certify the entire class.
+
+For JSON-named or other resource syntax exceptions, locate the real consumer
+and version. A controlled call to that parser with the actual expected type can
+test compatibility. Preserve complete-input/trailing-data controls and do not
+equate a generic parser result with application loading or reachability.
+
 ## Go build metadata
 
 Use `inspect_go_binary` for an explicit local ELF, PE or Mach-O (universal
@@ -208,6 +251,46 @@ container. gzip, xz, and zstd whole-file containers are unsupported and name
 `external_decompression` as the next probe: use an external codec utility to
 decompress into a separate file, then call `inspect_kernel_module` on that file. See
 [Linux kernel modules](https://github.com/morluto/rea/blob/main/docs/kernel-modules.md).
+
+## PyInstaller packaged Python
+
+Start with the supplied executable's artifact inventory, not the native
+bootloader's decompilation. Preserve the executable digest, CArchive/PYZ
+metadata, source coverage and complete Evidence bundle. For a directory that
+already contains user settings, logs or databases, select program artifacts
+explicitly; a program-inspection request does not require reading live account
+or runtime data.
+
+For large inventories, query occurrence fields from retained or saved Evidence
+and choose application modules that answer the current question. Retain their
+occurrence IDs and logical paths. `extract_artifact` selects by occurrence ID,
+not logical path, and publishes to a new absolute output root. Confirm the
+extraction manifest and each selected output digest before inspecting code.
+CArchive entry scripts may retain names without a `.pyc` extension; use the
+entry type and `bytecode_header` metadata instead of selecting only suffixes.
+Synthesized headers remain derived, not recovered source-file timestamps.
+
+Use `inspect_python_pyc` on the selected extracted files. A matching Python
+version and successful marshal traversal establish supported static structure.
+`nested_code` records code objects reachable through constants, not a call
+graph. String constants can be truncated, compound constants can be summarized,
+and bytecode can contain only length and digest. Read the actual schema and
+limitations before claiming complete strings, instructions or source recovery.
+
+If a compatible trusted CPython interpreter is already available, its static
+`marshal`/`dis` readers can provide an independent check after REA has admitted
+and parsed the selected bounded input. Match the exact bytecode magic, not only
+the marshal layout or filename. Run the reader with isolated interpreter
+settings and do not import, evaluate or execute the target module. Compare
+code-object identities, argument fields, names and original bytecode digests;
+label instruction output as that reader's evidence, not as REA decompilation.
+Do not install or invoke a different interpreter just because a header's version
+is recognized. No static comparison alone establishes application behavior.
+
+Close the static investigation with separate results for archive traversal,
+selected extraction, code-object coverage, independent checks and unresolved
+behavior. Rehash inspected original program files where the task requires
+original preservation. Preserve live runtime data and existing processes.
 
 ## CPython pyc files
 

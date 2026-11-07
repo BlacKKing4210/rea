@@ -174,3 +174,30 @@ coverage describes selected retained rows; `summary.coverage` or `exports.covera
 still describes the source table, so an empty partial page does not prove absence.
 CLI `inspect-native-exports --detail summary --evidence_output PATH` saves the
 complete bundle for later `inspect-analysis-view --evidence-bundle PATH` requests.
+
+## Verify generated output and controlled probes
+
+Before accepting a reconstruction or roundtrip, bind the original artifact,
+selected members, reading text, actual tool inputs and newly generated outputs
+with paths and digests. Use a fresh explicit output root; inspect tool-reported
+input-to-output mappings instead of assuming its default directory or filename
+policy. Reject overwritten basename collisions and copied originals masquerading
+as compiler outputs. An independent verifier must derive expectations from the
+original bytes and the declared scope, not only the producer's result matrix.
+
+Keep invalidated results and the reason for withdrawal. A later successful check
+needs its own input/output identity and receipt; it must not make an earlier
+failed or wrong-origin check look successful. Preserve useful partial evidence
+without treating a timed-out or crashed process as a clean completed run.
+
+For controlled execution, keep expected values outside the runtime input path.
+Require the selected executable/project identity, a fresh result artifact,
+reported values and types, normal termination and scoped cleanup. An exit code
+alone is insufficient: some runtimes report script errors while returning zero.
+Record whether execution used unchanged application code, exact recovered
+function text, dependency doubles, or an analyst-authored model. A passing probe
+does not establish unobserved callers, full-game behavior or an OS sandbox.
+
+Independent agents and different decompilers improve review coverage but are not
+proof by themselves. Review their output provenance and compare decision-critical
+claims with original instructions, bytes or independently observed execution.
