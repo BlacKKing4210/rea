@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+/output/
+/work/
+machine-profile.local.json
+verification-receipt.local.json

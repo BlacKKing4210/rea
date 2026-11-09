@@ -1,0 +1,4 @@
+interface:
+  display_name: "BlacKKing REA Workflow"
+  short_description: "Verify authorized recovery and portable reconstructions"
+  default_prompt: "Use $blackking-rea-workflow to inspect this authorized artifact and define a verifiable recovery scope."
